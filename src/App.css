@@ -1,0 +1,271 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.icons {
+  transition: all 0.5s ease;
+}
+.icons:hover {
+  background-color: #e9f5f5;
+  transform: scale(1.1);
+}
+
+.info {
+  background-color: rgba(0, 0, 0, 0.2);
+  opacity: 0;
+  transition: all 0.5s ease;
+  cursor: pointer;
+}
+
+.card:hover .info {
+  opacity: 1;
+}
+ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+}
+li {
+  width: 50%;
+  margin-bottom: 10px;
+}
+
+.socialIcon {
+  margin-left: 20px;
+  justify-content: center;
+  padding: 5px;
+  align-items: center;
+  cursor: pointer;
+}
+.btn_cart {
+  font-weight: 700;
+  border: solid 2px teal;
+  background-color: white;
+  padding: 15px;
+}
+.btn_cart:hover {
+  background-color: cadetblue;
+  color: #fff;
+}
+
+.registers {
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(
+      rgba(255, 255, 255, 0.5),
+      rgba(255, 255, 255, 0.5)
+    ),
+    url("https://images.pexels.com/photos/6984661/pexels-photo-6984661.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940")
+      center;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.register_input {
+  flex: 1;
+  min-width: 40%;
+  margin: 20px 10px 0px 0px;
+  padding: 10px;
+  border: solid 1px black;
+  border-radius: 1rem;
+}
+
+.btn_register {
+  width: 40%;
+  border: none;
+  padding: 15px 20px;
+  background-color: teal;
+  color: white;
+  cursor: pointer;
+  border-radius: 0.5rem;
+}
+
+.btn_register:hover {
+  background-color: #53020a;
+}
+
+.login {
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(
+      rgba(255, 255, 255, 0.5),
+      rgba(255, 255, 255, 0.5)
+    ),
+    url("https://images.pexels.com/photos/6984650/pexels-photo-6984650.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940")
+      center;
+  background-size: cover;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.login a {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  font-size: 12px;
+  text-decoration: underline;
+}
+
+.summaryitem {
+  margin: 30px 0px;
+  display: flex;
+  justify-content: space-between;
+}
+
+@media only screen and (max-width: 450px) {
+  /* Your mobile-specific styles go here */
+  /* For example: */
+  .nav_container {
+    height: 100px;
+    margin-bottom: 2rem;
+    width: 100%;
+  }
+  .nav_wrapper {
+    padding: 10px 0px;
+  }
+  .lang {
+    display: none;
+  }
+  .nav_input {
+    width: 50px;
+  }
+
+  .nav_logo {
+    font-size: 14px;
+  }
+  .nav_right {
+    justify-content: center;
+    flex-grow: 2;
+  }
+  .nav_menu {
+    font-size: 12px;
+    margin: 0.5rem;
+  }
+  .slider {
+    display: none;
+  }
+
+  .categories {
+    padding: 0px;
+    flex-direction: column;
+  }
+  .categoryItems {
+    height: 30vh;
+    justify-content: center;
+  }
+
+  .news_description {
+    text-align: center;
+  }
+  .newstitle {
+    font-size: 20px;
+  }
+  .inputContainer {
+    width: 80%;
+  }
+  .footer_center {
+    display: none;
+  }
+  .footer_container {
+    flex-direction: column;
+  }
+  .longin_wreapers {
+    width: 75%;
+  }
+  .register_wreapers {
+    width: 75%;
+  }
+  .Filtercontainer {
+    display: flex;
+    flex-direction: column;
+  }
+  .product_Filter {
+    display: flex;
+    flex-direction: column;
+    margin: 0px 20px;
+  }
+  .flitertext {
+    margin: 0px;
+  }
+  select {
+    margin: 5px 0px;
+    width: 30px;
+  }
+  .imageContainer {
+    flex-grow: 2;
+  }
+  .product_wrepper {
+    flex-direction: column;
+    padding: 10px;
+  }
+
+  .product_img {
+    height: 40vh;
+  }
+  .product_infoContainer {
+    padding: 10px;
+  }
+  .filterContainer {
+    width: 100%;
+  }
+  .AddContainer {
+    width: 100%;
+  }
+  .cart_Wrapper {
+    padding: 10px;
+  }
+  .product_price {
+    margin-bottom: 20px;
+  }
+  .topTexts {
+    display: none;
+  }
+  .priceDetails {
+    margin: auto;
+    align-items: center;
+  }
+  .product_amount {
+    margin: 5px 15px;
+  }
+  .bottom {
+    flex-direction: column;
+  }
+  .product {
+    flex-direction: column;
+  }
+}
+
+@media only screen and (max-width: 390px) {
+  /* Your mobile-specific styles go here */
+  /* For example: */
+  .nav_container {
+    height: 100px;
+    margin-bottom: 2rem;
+  }
+  .nav_wrapper {
+    padding: 8px 0px;
+  }
+  .lang {
+    display: none;
+  }
+  .nav_input {
+    width: 45px;
+  }
+
+  .nav_logo {
+    font-size: 12px;
+  }
+  .nav_right {
+    justify-content: center;
+  }
+  .nav_menu {
+    font-size: 10px;
+    margin: 0.01rem;
+  }
+
+  .categories {
+    padding: 1px;
+    flex-direction: column;
+  }
+}
