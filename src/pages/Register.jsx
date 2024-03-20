@@ -1,9 +1,9 @@
 const Register = () => {
   return (
     <div className="registers w-[100vw] h-[100vh]">
-      <div className="register_wreapers p-5 w-[40%] bg-white rounded">
+      <div className="register_wreapers  opacity-[0.75] p-5 w-[40%] bg-white rounded">
         <h1 className="title text-[24px] font-[300]">Create an Account</h1>
-        <form className=" flex flex-wrap">
+        <form className=" flex rester_form flex-wrap">
           <input placeholder="First Name" className="register_input" />
           <input placeholder="Last Name" className="register_input" />
           <input placeholder="username" className="register_input" />

@@ -1,15 +1,16 @@
-const Success = () => {
+function Success() {
   return (
-    <div className=" flex m-auto">
-      <div className=" flex flex-col">
-        <h1> thanks for your partronage </h1>
-        <h3>
-          your order is being process and will be delivered to you in 3 day
-        </h3>
-        <a href="#">Kindly use this link to track your order</a>
-      </div>
-    </div>
+    <>
+      <h2>Thanks for your order!</h2>
+      <h4>Your payment is successful.</h4>
+      <p>
+        We appreciate your business! If you have any questions, please email us
+        at
+        <a href="/">RETURN TO HOME PAGE</a>.
+      </p>
+      <div></div>
+    </>
   );
-};
+}
 
 export default Success;

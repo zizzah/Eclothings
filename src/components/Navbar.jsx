@@ -1,6 +1,7 @@
 import SearchIcon from "@mui/icons-material/Search";
 import Badge from "@mui/material/Badge";
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
+import { useState } from "react";
 const Navbar = () => {
   return (
     <div className="     h-16 nav_container ">
@@ -17,20 +18,32 @@ const Navbar = () => {
           </div>
         </div>
         <div className="flex-1  h-12   items-center  ">
-          <h1 className=" text-center my-2 font-bold  nav_logo ">EL-ZIZZAH</h1>
+          <a href={`/`} className="  no-underline text-black">
+            <h1 className=" text-center my-1 font-bold  nav_logo ">
+              EL-ZIZZAH
+            </h1>
+          </a>
         </div>
 
         <div className=" flex flex-1 gap-2 h-12  nav_right   justify-end">
           <div className="menu text-sm ml-[25] my-2 nav_menu  cursor-pointer">
-            REGISTER
+            <a href={`/register`} className="  no-underline text-black">
+              REGISTER
+            </a>
+          </div>
+
+          <div className="menu text-sm ml-12 my-2 cursor-pointer nav_menu">
+            <a href={`/login`} className="  no-underline text-black">
+              {" "}
+              SIGNIN
+            </a>
           </div>
           <div className="menu text-sm ml-12 my-2 cursor-pointer nav_menu">
-            SIGNIN
-          </div>
-          <div className="menu text-sm ml-12 my-2 cursor-pointer nav_menu">
-            <Badge badgeContent={4} color="primary">
-              <ShoppingCartOutlinedIcon />
-            </Badge>
+            <a href={`/payment`} className="  no-underline text-black">
+              <Badge badgeContent={4} color="primary">
+                <ShoppingCartOutlinedIcon />
+              </Badge>
+            </a>
           </div>
         </div>
       </div>

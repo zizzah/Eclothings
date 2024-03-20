@@ -2,6 +2,7 @@
   "name": "e-clothings",
   "private": true,
   "version": "0.0.0",
+  "proxy": "http://localhost:5000 ",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -13,8 +14,14 @@
     "@emotion/styled": "^11.11.0",
     "@heroicons/react": "^1.0.6",
     "@mui/icons-material": "^5.15.4",
+    "@stripe/stripe-js": "^3.0.8",
+    "axios": "^1.6.7",
+    "bootstrap": "^5.3.3",
     "react": "^18.2.0",
+    "react-bootstrap": "^2.10.1",
     "react-dom": "^18.2.0",
+    "react-router-dom": "^6.22.3",
+    "react-stripe-checkout": "^2.6.3",
     "styled-components": "^6.1.8"
   },
   "devDependencies": {

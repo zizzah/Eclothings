@@ -1,23 +1,69 @@
 import "./App.css";
 import HomePage from "./pages/HomePage.jsx";
-import Payment from "./pages/Payment.jsx";
-import Root from "./route/root";
 import ErrorPage from "./pages/Error";
+import Register from "./pages/Register";
+import Login from "./pages/Login";
+import Product from "./pages/Product";
+import ProductList from "./pages/ProductList";
 import Success from "./pages/Success.jsx";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import Cart from "./pages/Cart";
+import StripePayment from "./StripePayment.jsx";
+import {
+  createBrowserRouter,
+  RouterProvider,
+  Navigate,
+} from "react-router-dom";
+
+const isAuthenticated = () => {
+  // Implement your authentication logic here, e.g., checking cookies, local storage, or a state management library
+  return true; // Replace with the actual return value based on your authentication state
+};
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Root />,
+    element: isAuthenticated() ? (
+      <HomePage />
+    ) : (
+      <Navigate to="/login" replace={true} />
+    ),
     errorElement: <ErrorPage />,
   },
   {
-    path: "contacts/:contactId",
-    element: <Payment />,
+    path: "/payment",
+    element: <StripePayment />,
+  },
+
+  {
+    path: "/products/:category",
+    element: <ProductList />,
+  },
+
+  {
+    path: "/product/:id",
+    element: <Product />,
   },
   {
-    path: "success/:success",
+    path: "/cart",
+    element: <Cart />,
+  },
+
+  {
+    path: "/register",
+    element: !isAuthenticated() ? (
+      <Register />
+    ) : (
+      <Navigate to="/" replace={true} />
+    ),
+  },
+
+  {
+    path: "/login",
+    element: <Login />,
+  },
+
+  {
+    path: "/success",
     element: <Success />,
   },
 ]);
