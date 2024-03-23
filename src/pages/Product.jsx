@@ -12,7 +12,7 @@ const Product = () => {
   const { pathname } = useLocation();
   const [product, setProduct] = useState({});
   const id = pathname.split("/")[2];
-  console.log(product);
+  console.log(product.color);
 
   useEffect(() => {
     const getProduct = async () => {
@@ -41,30 +41,32 @@ const Product = () => {
         </div>
         <div className="product_infoContainer flex-1 px-[50px]">
           <h1 className="product_title font-[200]">{product.title}</h1>
-          <p className="product_discription my-5">
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ratione
-            omnis hic impedit fuga rerum magni, sapiente facilis consequuntur
-            harum quidem libero. Numquam ab voluptatibus, quo voluptatum
-            reprehenderit sequi ea vitae!
-          </p>
+          <p className="product_discription my-5">{product.desc}</p>
           <span className="product_price text-[40px] font-[100]">
-            Price 30$
+            ${product.price}
           </span>
           <div className="filterContainer flex justify-between  w-[50%] my-[30px]">
             <div className="filter flex items-center">
               <span className="Title text-[20px] font-[200] ">Color</span>
-              <div className="filterColor bg-black w-5 h-5 rounded-[50%] mx-[5px] cursor-pointer"></div>
-              <div className="filterColor   bg-blue-700 w-5 h-5  rounded-[50%] mx-[5px] cursor-pointer"></div>
-              <div className="filterColor  bg-gray-500 w-5 h-5 rounded-[50%] mx-[5px] cursor-pointer"></div>
+              {product.color &&
+                product.color.map((color) => (
+                  <div
+                    className="filterColor  bg-slate-400 w-5 h-5 rounded-[50%] mx-[5px] cursor-pointer"
+                    key={color}
+                    style={{ backgroundColor: color }}
+                  ></div>
+                ))}
             </div>
             <div className="filter flex items-center">
               <span className="title ">Size</span>
               <div className="filterSize">
                 <select name="" id="" className="select ml-5 p-2">
-                  <option value="">S</option>
-                  <option value="">M</option>
-                  <option value="">L</option>
-                  <option value="">XL</option>
+                  {product.size &&
+                    product.size.map((size) => (
+                      <option value="" key={size}>
+                        {size}
+                      </option>
+                    ))}
                 </select>
               </div>
             </div>

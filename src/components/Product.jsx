@@ -41,8 +41,6 @@ const Product = ({ item }) => {
           <FavoriteBorderIcon />
         </div>
       </div>
-      <span>price #{item.price}</span>
-      <span>{item.title}</span>
     </div>
   );
 };

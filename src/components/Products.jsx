@@ -5,7 +5,6 @@ import axios from "axios";
 const Products = ({ filters, sorted, category }) => {
   const [products, setProducts] = useState([]);
   const [filtersProducts, setFilterProducts] = useState([]);
-  console.log(products);
   useEffect(() => {
     const getProduct = async () => {
       try {
