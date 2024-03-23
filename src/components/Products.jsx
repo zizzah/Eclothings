@@ -5,14 +5,14 @@ import axios from "axios";
 const Products = ({ filters, sorted, category }) => {
   const [products, setProducts] = useState([]);
   const [filtersProducts, setFilterProducts] = useState([]);
-  console.log(sorted);
+  console.log(products);
   useEffect(() => {
     const getProduct = async () => {
       try {
         const res = await axios.get(
           category
-            ? `http://localhost:5000/app/product?category=${category}`
-            : "http://localhost:5000/app/product"
+            ? `http://localhost:5000/api/product?category=${category}`
+            : "http://localhost:5000/api/product"
         );
         setProducts(res.data);
       } catch (error) {

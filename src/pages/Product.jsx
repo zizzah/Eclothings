@@ -6,7 +6,7 @@ import RemovenCircleIco from "@mui/icons-material/RemoveCircle";
 import AddIcon from "@mui/icons-material/Add";
 import { useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
-import axios from "axios";
+import { publicRequest } from "../RequestMethod.js";
 
 const Product = () => {
   const { pathname } = useLocation();
@@ -17,9 +17,7 @@ const Product = () => {
   useEffect(() => {
     const getProduct = async () => {
       try {
-        const res = await axios.get(
-          `http://localhost:5000/api/product/find/${id}`
-        );
+        const res = await publicRequest.get(`product/find/${id}`);
         setProduct(res.data);
       } catch (error) {
         console.log(error);
