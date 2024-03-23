@@ -1,6 +1,7 @@
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
 import SearchRoundedIcon from "@mui/icons-material/SearchRounded";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
+import { Link } from "react-router-dom";
 /* eslint-disable react/prop-types */
 const Product = ({ item }) => {
   return (
@@ -29,7 +30,9 @@ const Product = ({ item }) => {
           className="icons icons h-[40px] w-[40px] flex justify-center items-center
          rounded-[50%] bg-white m-[10px]"
         >
-          <SearchRoundedIcon />
+          <Link to={`/product/${item._id}`}>
+            <SearchRoundedIcon />
+          </Link>
         </div>
         <div
           className="icons icons h-[40px] w-[40px] flex justify-center items-center 
@@ -38,6 +41,8 @@ const Product = ({ item }) => {
           <FavoriteBorderIcon />
         </div>
       </div>
+      <span>price #{item.price}</span>
+      <span>{item.title}</span>
     </div>
   );
 };

@@ -10,58 +10,54 @@ const ProductList = () => {
   const { pathname, search, hash } = useLocation();
 
   const [filters, setFilters] = useState({});
-  const [sorted, setSorted] = useState('newest');
-
+  const [sorted, setSorted] = useState("newest");
 
   // ... rest of your component code
 
   const category = pathname.split("/")[2];
- 
 
-    const handleFilters =(e)=>{
-      const value = e.target.value;
-      setFilters({...filters,
-        [e.target.name]:value
-      })
-    }
+  const handleFilters = (e) => {
+    const value = e.target.value;
+    setFilters({ ...filters, [e.target.name]: value });
+  };
 
-     
   return (
     <div className="prductlist ">
       <Navbar />
       <Annoncement />
-      <h1 className="title mb-5   text-center">DRESSES</h1>
+      <h1 className="title mb-5   text-center">{category}</h1>
       <div className="Filtercontainer flex justify-between">
         <div className="product_Filter mb-5 ">
           <span className=" text-[20px] font-[600] flitertext ">Products</span>
           <select
-            className=" w-[200px] mr-5 p-[10px]" 
-            name='color'
+            className=" w-[200px] mr-5 p-[10px]"
+            name="color"
             onChange={handleFilters}
           >
-            <option  >color</option>
+            <option>color</option>
 
-            <option >Black</option>
+            <option>black</option>
 
-            <option >white</option>
-            <option >Red</option>
-            <option >Blue</option>
-            <option >Yellow</option>
-            <option >Green</option>
+            <option>white</option>
+            <option>Red</option>
+            <option>blue</option>
+            <option>yellow</option>
+            <option>green</option>
           </select>
 
           <select
             className=" w-[200px] mr-5 p-[10px]"
-            name='size'
+            name="size"
             onChange={handleFilters}
           >
-            <option >Size</option>
-            <option >Small</option>
-            <option >Medium</option>
-            <option >Large</option>
-            <option >Extral Large</option>
-            <option >Super Extral Large</option>
-            <option >Extral Small</option>
+            {" "}
+            <option>size</option>
+            <option>XS</option>
+            <option>S</option>
+            <option>M</option>
+            <option>L</option>
+            <option>XL</option>
+            <option>SXL</option>
           </select>
         </div>
         <div className="product_Filter mb-5">
@@ -71,12 +67,11 @@ const ProductList = () => {
           </span>
           <select
             className=" w-[200px]   bg-teal-600 text-white  mr-5 p-[10px]"
-           onChange={(e)=>setSorted(e.target.value)}
+            onChange={(e) => setSorted(e.target.value)}
           >
-            <option value='newest'>newest</option>
-            <option value='price (asc)' >price (asc)</option>
-            <option value='price (desc)' > price (desc)</option>
-           
+            <option value="newest">newest</option>
+            <option value="price (asc)">price (asc)</option>
+            <option value="price (desc)"> price (desc)</option>
           </select>
         </div>
       </div>

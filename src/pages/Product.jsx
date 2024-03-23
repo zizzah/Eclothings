@@ -4,7 +4,30 @@ import NewLetter from "../components/NewLetter.jsx";
 import Footer from "../components/Footer.jsx";
 import RemovenCircleIco from "@mui/icons-material/RemoveCircle";
 import AddIcon from "@mui/icons-material/Add";
+import { useLocation } from "react-router-dom";
+import { useEffect, useState } from "react";
+import axios from "axios";
+
 const Product = () => {
+  const { pathname } = useLocation();
+  const [product, setProduct] = useState({});
+  const id = pathname.split("/")[2];
+  console.log(product);
+
+  useEffect(() => {
+    const getProduct = async () => {
+      try {
+        const res = await axios.get(
+          `http://localhost:5000/api/product/find/${id}`
+        );
+        setProduct(res.data);
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    getProduct();
+  }, [id]);
+
   return (
     <div className="productPage">
       <Navbar />
@@ -13,13 +36,13 @@ const Product = () => {
       <div className="product_wrepper p-[50px] flex">
         <div className="imageContainer flex-1">
           <img
-            src="https://i.ibb.co/S6qMxwr/jean.jpg"
+            src={product.img}
             alt="image"
             className="product_img w-[100%] h-[90vh] object-cover"
           />
         </div>
         <div className="product_infoContainer flex-1 px-[50px]">
-          <h1 className="product_title font-[200]">Denim Jumpsuit</h1>
+          <h1 className="product_title font-[200]">{product.title}</h1>
           <p className="product_discription my-5">
             Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ratione
             omnis hic impedit fuga rerum magni, sapiente facilis consequuntur
