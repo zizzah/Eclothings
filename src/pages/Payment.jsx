@@ -1,11 +1,14 @@
 import { useState, useEffect } from "react";
 import StripeCheckout from "react-stripe-checkout";
 import axios from "axios";
+import { useSelector } from "react-redux";
 
 const KEY =
   "pk_test_51OqpN8JVz8zGQIqo5QMKcM3KmOQnjEjwpCxMmXbqWFYkNBJyyU19IGLB31Jv2Q71Tqg56MtOPY3umUmkiaxNoxYr00pbjSn3TT";
 const Payment = () => {
   const [stripeToken, setStripeToken] = useState(null);
+  const quant = useSelector((state) => state.cart);
+  const {total} = quant
 
   const onToken = (token) => {
     setStripeToken(token);
@@ -20,7 +23,7 @@ const Payment = () => {
           {
             id: stripeToken.id,
             object: "balance_transaction",
-            amount: 1000,
+            amount: total,
             available_on: 1678043844,
             currency: "NGN",
             description: null,

@@ -1,8 +1,21 @@
+/* eslint-disable no-unused-vars */
 import SearchIcon from "@mui/icons-material/Search";
+import { useState } from "react";
 import Badge from "@mui/material/Badge";
 import ShoppingCartOutlinedIcon from "@mui/icons-material/ShoppingCartOutlined";
-import { useState } from "react";
+import { useSelector } from "react-redux";
+import { cardActionAreaClasses } from "@mui/material";
 const Navbar = () => {
+  const quantity = useSelector((state) => state.cart.quantity);
+  const quant = useSelector((state) => state.cart);
+
+  console.log(quant)
+  const [order, setOrder]=useState(function(){
+    const store = localStorage.getItem('cart')
+    return JSON.parse(store) || []
+  })
+
+
   return (
     <div className="     h-16 nav_container ">
       <div className="  py-[8px] px-5 flex flex-wrap  gap-1 justify-between nav_wrapper  ">
@@ -40,7 +53,7 @@ const Navbar = () => {
           </div>
           <div className="menu text-sm ml-12 my-2 cursor-pointer nav_menu">
             <a href={`/payment`} className="  no-underline text-black">
-              <Badge badgeContent={4} color="primary">
+              <Badge badgeContent={quantity} color="primary">
                 <ShoppingCartOutlinedIcon />
               </Badge>
             </a>

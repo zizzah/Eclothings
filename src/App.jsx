@@ -7,12 +7,18 @@ import Product from "./pages/Product";
 import ProductList from "./pages/ProductList";
 import Success from "./pages/Success.jsx";
 import Cart from "./pages/Cart";
-import StripePayment from "./StripePayment.jsx";
+import { Provider } from "react-redux";
+import store from "./redux/store.js";
+import PaymentForm from "./PaymentForm.jsx";
+
+
 import {
   createBrowserRouter,
   RouterProvider,
   Navigate,
 } from "react-router-dom";
+import Payment from "./pages/Payment.jsx";
+import StripePayment from "./StripePayment.jsx";
 
 const isAuthenticated = () => {
   // Implement your authentication logic here, e.g., checking cookies, local storage, or a state management library
@@ -31,6 +37,10 @@ const router = createBrowserRouter([
   },
   {
     path: "/payment",
+    element: <Cart />,
+  },
+  {
+    path: "/checkout",
     element: <StripePayment />,
   },
 
@@ -59,7 +69,10 @@ const router = createBrowserRouter([
 
   {
     path: "/login",
-    element: <Login />,
+    element: <>
+         <Login />
+
+    </>,
   },
 
   {
@@ -71,7 +84,9 @@ const router = createBrowserRouter([
 function App() {
   return (
     <>
+      <Provider store={store}>
       <RouterProvider router={router} />
+  </Provider>
     </>
   );
 }

@@ -33,6 +33,7 @@ const Product = ({ item }) => {
           <Link to={`/product/${item._id}`}>
             <SearchRoundedIcon />
           </Link>
+          -{" "}
         </div>
         <div
           className="icons icons h-[40px] w-[40px] flex justify-center items-center 
